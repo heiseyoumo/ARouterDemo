@@ -14,10 +14,15 @@ class MainActivity : BaseActivity() {
              */
             var bundle = Bundle()
             var person = Person("彭宽旺", 18)
-            var person1 = Person("彭大爷", 18)
+            var person1 = Person("彭大爷", 20)
             bundle.putString("name", person.name)
             bundle.putString("name1", person1.name)
-            ARouter.getInstance().build(CoreRouterPath.SIMPLE).navigation()
+            ARouter.getInstance()
+                .build(CoreRouterPath.SIMPLE)
+                .with(bundle)
+                .withSerializable("person", person)
+                .withInt("age", person.age)
+                .navigation()
         }
     }
 }
