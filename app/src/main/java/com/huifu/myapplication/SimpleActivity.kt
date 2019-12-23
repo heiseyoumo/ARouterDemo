@@ -28,6 +28,6 @@ class SimpleActivity : BaseActivity() {
         textView.append("\n\n")
         textView.append("name:$aliasName")
         textView.append("\n\n")
-        textView.append("name3:${person.name},年龄:$person.age")
+        textView.append("name3:${person.name},年龄:${person.age}")
     }
 }
