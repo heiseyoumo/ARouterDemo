@@ -14,7 +14,8 @@ class MainActivity : BaseActivity() {
              */
             var bundle = Bundle()
             var person = Person("彭宽旺", 18)
-            var person1 = Person("彭大爷", 20)
+            var person1 = Person("彭大爷1", 20)
+            var person2 = Person("彭大爷2", 20)
             bundle.putString("name", person.name)
             bundle.putString("name1", person1.name)
             ARouter.getInstance()
@@ -23,8 +24,7 @@ class MainActivity : BaseActivity() {
                  *或者是通过uri进行跳转build(Uri.parse(CoreRouterPath.SIMPLE))
                  */
                 .with(bundle)
-                .withSerializable("person", person)
-                .withInt("age", person.age)
+                .withSerializable("person", person2)
                 .navigation()
         }
     }

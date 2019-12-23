@@ -3,7 +3,6 @@ package com.huifu.myapplication
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
-import kotlinx.android.synthetic.main.activity_simple.*
 
 /**
  * @author pengkuanwang
@@ -14,16 +13,17 @@ class SimpleActivity : BaseActivity() {
 
     @Autowired
     lateinit var name: String
-    @Autowired(name = "name1")
-    lateinit var aliasName: String
+
+    @Autowired
+    lateinit var name1: String
+
     @Autowired
     lateinit var person: Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple)
-        textView.text = "姓名:$name,别名:$aliasName"
-        textView.append("\n\n\n\n")
-        textView.append("姓名:${person.name},年龄:${person.age}")
+        println("$name,$name1")
+        println(person.name)
     }
 }
