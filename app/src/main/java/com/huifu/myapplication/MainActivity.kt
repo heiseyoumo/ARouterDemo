@@ -19,6 +19,9 @@ class MainActivity : BaseActivity() {
             bundle.putString("name1", person1.name)
             ARouter.getInstance()
                 .build(CoreRouterPath.SIMPLE)
+                /**
+                 *或者是通过uri进行跳转build(Uri.parse(CoreRouterPath.SIMPLE))
+                 */
                 .with(bundle)
                 .withSerializable("person", person)
                 .withInt("age", person.age)
