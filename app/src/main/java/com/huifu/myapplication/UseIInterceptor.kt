@@ -13,8 +13,9 @@ import com.alibaba.android.arouter.facade.template.IInterceptor
  */
 @Interceptor(priority = 8)
 class UseIInterceptor : IInterceptor {
-    override fun process(postcard: Postcard, callback: InterceptorCallback?) {
+    override fun process(postcard: Postcard, callback: InterceptorCallback) {
         Log.d(Constant.TAG, "UseIInterceptor 拦截器开始执行,线程名字:${Thread.currentThread().name}")
+        callback.onContinue(postcard)
     }
 
     override fun init(context: Context?) {
