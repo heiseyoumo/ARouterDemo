@@ -16,10 +16,4 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         ARouter.getInstance().inject(this);
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ARouter.getInstance().destroy();
-    }
 }
