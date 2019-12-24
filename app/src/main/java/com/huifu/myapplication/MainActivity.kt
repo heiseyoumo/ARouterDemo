@@ -1,7 +1,9 @@
 package com.huifu.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import com.alibaba.android.arouter.core.LogisticsCenter
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
@@ -9,10 +11,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     val TAG: String = "MainActivity"
+    val REQUEST_CODE = 2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textView.setOnClickListener {
+        button.setOnClickListener {
             /**
              * Activity的普通跳转
              */
@@ -32,7 +35,7 @@ class MainActivity : BaseActivity() {
                 .navigation()
         }
 
-        textView1.setOnClickListener {
+        button1.setOnClickListener {
             ARouter.getInstance().build(CoreRouterPath.DEMO).navigation(this, object :
                 NavigationCallback {
                 override fun onLost(postcard: Postcard) {
@@ -65,5 +68,17 @@ class MainActivity : BaseActivity() {
 
             })
         }
+        button2.setOnClickListener {
+            var postcard = ARouter.getInstance().build(CoreRouterPath.DEMO2)
+            LogisticsCenter.completion(postcard)
+            val destination = postcard.destination
+            var intent = Intent(this, destination)
+            startActivityForResult(intent, REQUEST_CODE)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        ToastUtil1.showCustomToast("成功")
     }
 }
