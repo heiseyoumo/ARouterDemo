@@ -11,5 +11,6 @@ interface CoreRouterPath {
          */
         const val MAIN: String = "/app/MainActivity"
         const val SIMPLE: String = "/app/SimpleActivity"
+        const val DEMO: String = "/app/demo"
     }
 }

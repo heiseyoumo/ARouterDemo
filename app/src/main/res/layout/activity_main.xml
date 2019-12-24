@@ -8,10 +8,18 @@
 
         <Button
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="100dp"
-            android:text="跳转"
+            android:layout_marginTop="20dp"
+            android:text="带有参数的简单跳转"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="监听跳转状态"
             android:textSize="16dp" />
     </LinearLayout>
 </layout>
